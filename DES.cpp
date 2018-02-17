@@ -33,12 +33,12 @@ std::string EVENT::toString(){
         case TRANS_TO_BLOCK:
             s+= "BLOCK";
             s+="  ib="+to_string(evtProcess->remainingIO);
-            s+=" rem="+to_string(evtProcess->TC-evtTimeStamp);
+            s+=" rem="+to_string(evtProcess->TC-evtProcess->CT);
             break;
         case TRANS_TO_PREEMPT:
             s+= "READY";
             s+="  cb="+to_string(evtProcess->remainingCB);
-            s+=" rem="+to_string(evtProcess->TC-evtTimeStamp);
+            s+=" rem="+to_string(evtProcess->TC-evtProcess->CT);
             s+=" prio="+to_string(evtProcess->dynamic_priority);
             break;
     }
@@ -59,9 +59,11 @@ DES::DES(string inputFile, string rfile,SCHEDULE_MODE mode,int quantum){
             THE_SCHEDULER = new Sched_SJF();
             break;
         case RR:
+            printQuantum = true;
             THE_SCHEDULER = new Sched_RR();
             break;
         case PRIO:
+            printQuantum = true;
             THE_SCHEDULER = new Sched_PRIO();
             break;
         default:
@@ -86,6 +88,7 @@ DES::DES(string inputFile, string rfile,SCHEDULE_MODE mode,int quantum){
     catch (ifstream::failure e) {
         cerr << "Exception opening/reading/closing file\n";
     }
+    this->quantum = quantum;
 }
 EVENT* DES::get_event(){
     if(eventQ.empty()) return nullptr;
@@ -165,4 +168,28 @@ void DES::print_queue(){
     for(auto evt:eventQ){
         cout<<evt->toString()<<endl;
     }
+}
+void DES::report(){
+    if(printQuantum)
+        cout<<THE_SCHEDULER->name<<" "<<quantum<<endl;
+    else
+        cout<<THE_SCHEDULER->name<<endl;
+    for(auto proc: processList){
+        proc->print();
+    }
+
+    // Replace in the future!!
+    int    maxfintime = 10;
+	double cpu_util = 255.9887;
+	double io_util  = 3.1415927;
+	double avg_turnaround = 128.367;
+	double avg_waittime = 0.0;
+	double throughput = 8.9567;
+    printf("SUM: %d %.2lf %.2lf %.2lf %.2lf %.3lf\n",
+	       maxfintime,
+	       cpu_util,
+	       io_util,
+	       avg_turnaround,
+	       avg_waittime, 
+	       throughput);
 }

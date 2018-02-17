@@ -6,7 +6,6 @@
 typedef int stime_t;
 
 struct Util{
-    static void report();
     static int s2i(std::string s);
 };
 

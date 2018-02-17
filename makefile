@@ -3,7 +3,7 @@ Include = utility.cpp scheduler.cpp process.cpp DES.cpp
 
 INPUT_BASE = ./lab2_assign/
 exec: $(MAIN)
-	@./$^ -v -sF $(INPUT_BASE)input0 $(INPUT_BASE)rfile
+	@./$^ -v -sS $(INPUT_BASE)input0 $(INPUT_BASE)rfile
 	@ #./$^ -sF $(INPUT_BASE)input0 $(INPUT_BASE)rfile
 	@ #./$^ -v -sF $(INPUT_BASE)input0 $(INPUT_BASE)rfile
 	@rm $^

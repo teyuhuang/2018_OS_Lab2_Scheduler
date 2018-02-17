@@ -18,6 +18,7 @@ struct EVENT{
 };
 class DES{
 private:
+    bool printQuantum = false;
     int quantum;
     myRand rnd;
     int CURRENT_TIME;
@@ -35,6 +36,7 @@ public:
     void add_event(TRANS_TYPE type, Process *evtProcess, int evtTimeStamp);
     void Simulation();
     void print_queue();
+    void report();
 };
 
 #endif /* DES_H */

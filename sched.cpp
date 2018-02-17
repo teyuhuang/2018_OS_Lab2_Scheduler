@@ -63,6 +63,10 @@ int main(int argc, char **argv){
     string randFile = argv[argc - 1];
     DES des(inputName,randFile,sm, quantum);
     des.print_queue();
+    des.Simulation();
+    des.report();
+
+
 
     return 0;
 }

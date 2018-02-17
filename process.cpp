@@ -37,13 +37,11 @@ Process::Process(std::string line,int sp){
     dynamic_priority = static_priority-1;
 }
 void Process::print(){
-    std::cout<<"PID:"<<PID
-        <<" AT="<<AT
-        <<" TC="<<TC
-        <<" CB="<<CB
-        <<" IO="<<IO
-        <<" Status="<<state
-        <<" static_prio:"<<static_priority
-        <<" dymi_prio:"<<dynamic_priority
-        <<std::endl;
+    printf("%04d: %4d %4d %4d %4d %1d | %5d %5d %5d %5d\n",
+            PID,
+            AT, TC, CB, IO, static_priority,
+            state_ts, // last time stamp
+            state_ts - AT,
+            IT,
+            CW);
 }

@@ -11,7 +11,12 @@ public:
     int AT, //Arrival Time
         TC, //Total CPU Time
         CB, //CPU Burst
-        IO; //IO Burst
+        IO, //IO Burst
+        FT, //Finishing Time
+        TT, //Turnaround time ( finishing time - AT )
+        IT, //I/O Time ( time in blocked state)
+        CW, //CPU Waiting time ( time in Ready state )
+        CT; //CPU Time(time in Running state)
     int PID;
     int timeInPrevState = 0;
     int remainingCB=-1, remainingIO=-1;
