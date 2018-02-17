@@ -1,10 +1,4 @@
 #include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <vector>
-#include <map>
-#include <unistd.h>
 #include "scheduler.h"
 
 using namespace std;

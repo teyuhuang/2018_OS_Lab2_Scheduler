@@ -1,10 +1,4 @@
 #include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <vector>
-#include <map>
-#include <unistd.h>
 #include "process.h"
 #include "utility.h"
 int Process::idCounter = 0;

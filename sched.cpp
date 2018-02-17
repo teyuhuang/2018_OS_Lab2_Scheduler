@@ -1,13 +1,5 @@
 #include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <vector>
-#include <map>
 #include <unistd.h>
-#include "utility.h"
-#include "scheduler.h"
-#include "process.h"
 #include "DES.h"
 #define DEFAULT_QUANTUM 100000
 

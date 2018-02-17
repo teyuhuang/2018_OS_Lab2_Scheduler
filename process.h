@@ -1,12 +1,7 @@
 #ifndef PROCESS_H
 #define PROCESS_H
-#include <iostream>
-#include <fstream>
-#include <sstream>
 #include <string>
-#include <vector>
-#include <map>
-#include <unistd.h>
+
 enum PROCESS_STATUS {CREATED,READY,RUNNING,BLOCKED};
 
 class Process{

@@ -1,10 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <string>
-#include <vector>
-#include <map>
-#include <unistd.h>
 #include "utility.h"
 using namespace std;
 void Util::report()
@@ -60,11 +56,6 @@ void Util::report()
 int Util::s2i(string s){
     return stoi(s,nullptr,10);
     }
-void Util::round_check()
-{
-    printf("\nCheck correct precision output: should show '0.333 0.667'\n");
-    printf("%.3lf %.3lf\n",1.0/3.0, 2.0/3.0);
-}
 
 int myRand::myrandom(int burst) {
     if(isFileLoaded){

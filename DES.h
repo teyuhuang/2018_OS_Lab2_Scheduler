@@ -1,12 +1,8 @@
 #ifndef DES_H
 #define DES_H
-#include <iostream>
-#include <fstream>
-#include <sstream>
 #include <string>
 #include <vector>
 #include <list>
-#include <unistd.h>
 #include "utility.h"
 #include "scheduler.h"
 #include "process.h"

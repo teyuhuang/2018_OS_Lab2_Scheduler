@@ -1,13 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <string>
-#include <vector>
-#include <map>
-#include <unistd.h>
-#include "utility.h"
-#include "scheduler.h"
-#include "process.h"
 #include "DES.h"
 EVENT::EVENT(TRANS_TYPE typ, Process *p, int t):transition(typ),evtProcess(p),evtTimeStamp(t){}
 std::string EVENT::toString(){

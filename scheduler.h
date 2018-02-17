@@ -1,12 +1,9 @@
 #ifndef SCHEDULER_H
 #define SCHEDULER_H
-#include <iostream>
-#include <fstream>
-#include <sstream>
+#include <queue>
 #include <string>
 #include <vector>
 #include <map>
-#include <unistd.h>
 #include "process.h"
 enum SCHEDULE_MODE {FCFS,LCFS,SJF,RR,PRIO};
 
@@ -18,6 +15,8 @@ public:
 };
 
 class Sched_FCFS: public Scheduler{
+private:
+
 public:
     int add_to_qeueue(Process *p);
     Process * get_next_process();
