@@ -8,18 +8,20 @@ class Process{
 private:
     static int idCounter;
 public:
-    int AT, //Arrival Time
-        TC, //Total CPU Time
-        CB, //CPU Burst
-        IO, //IO Burst
-        FT, //Finishing Time
-        TT, //Turnaround time ( finishing time - AT )
-        IT, //I/O Time ( time in blocked state)
-        CW, //CPU Waiting time ( time in Ready state )
-        CT; //CPU Time(time in Running state)
+    int AT=0, //Arrival Time
+        TC=0, //Total CPU Time
+        CB=0, //CPU Burst
+        IO=0, //IO Burst
+        FT=0, //Finishing Time
+        TT=0, //Turnaround time ( finishing time - AT )
+        IT=0, //I/O Time ( time in blocked state)
+        CW=0, //CPU Waiting time ( time in Ready state )
+        CT=0, //CPU Time(time in Running state)
+        REM=0, //Remaining execution time
+        WhenInReady = 0;
     int PID;
     int timeInPrevState = 0;
-    int remainingCB=-1, remainingIO=-1;
+    int remainingCB=0, remainingIO=0;
     int static_priority, dynamic_priority;
     int state_ts=0;
     PROCESS_STATUS state = CREATED;

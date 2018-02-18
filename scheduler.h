@@ -43,15 +43,17 @@ public:
     Sched_SJF();
 };
 
-class Sched_RR: public Scheduler{
+class Sched_RR: public Sched_FCFS{
 public:
-    void add_to_qeueue(Process *p);
-    Process * get_next_process();
     Sched_RR();
 };
 
 class Sched_PRIO: public Scheduler{
+private:
+    std::queue<Process*>* currentQ = new std::queue<Process*>[NUM_OF_PRIO];
+    std::queue<Process*>* expiredQ = new std::queue<Process*>[NUM_OF_PRIO];
 public:
+    static const int NUM_OF_PRIO = 4;
     void add_to_qeueue(Process *p);
     Process * get_next_process();
     Sched_PRIO();

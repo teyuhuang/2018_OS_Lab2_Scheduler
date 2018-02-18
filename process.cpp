@@ -6,10 +6,12 @@ int Process::idCounter = 0;
 Process::Process(int at, int tc, int cb, int io,int sp){
     AT=at;
     TC=tc;
+    REM = TC;
     CB=cb;
     IO=io;
     PID=idCounter++;
     static_priority=sp;
+    state_ts = at;
     dynamic_priority = static_priority-1;
 }
 Process::Process(std::string line,int sp){
@@ -31,7 +33,8 @@ Process::Process(std::string line,int sp){
             exit(0);
         }
     }
-       
+    REM = TC;
+    state_ts = AT;
     PID=idCounter++;
     static_priority=sp;
     dynamic_priority = static_priority-1;

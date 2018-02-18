@@ -5,7 +5,7 @@ void test(){
     b = 2.0/3.0;
     printf("%.2lf %.2lf\n", a, b);
     printf("%.3lf %.3lf\n", a, b);
-    printf("Result should be 0.33 0.67\n0.333 0.667\n");
+    printf("Result should be \n0.33 0.67\n0.333 0.667\n");
 }
 int main(){
     test();

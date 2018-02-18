@@ -8,7 +8,7 @@
 #include "process.h"
 
 using namespace std;
-enum TRANS_TYPE {TRANS_TO_READY, TRANS_TO_RUN, TRANS_TO_BLOCK, TRANS_TO_PREEMPT};
+enum TRANS_TYPE {TRANS_TO_READY, TRANS_TO_RUN, TRANS_TO_BLOCK, TRANS_TO_PREEMPT, TRANS_TO_DONE};
 struct EVENT{
     TRANS_TYPE transition;
     Process *evtProcess;
@@ -19,16 +19,19 @@ struct EVENT{
 class DES{
 private:
     bool printQuantum = false;
-    int quantum;
+    bool printVerbose = false;
+    
+    int quantum =0;
+    Discrete_Time_Accummulator IOCounter;
     myRand rnd;
-    int CURRENT_TIME;
+    int CURRENT_TIME=0;
     bool CALL_SCHEDULER = false;
     Process* CURRENT_RUNNING_PROCESS = nullptr;
     Scheduler* THE_SCHEDULER = nullptr;
     list<EVENT*> eventQ;
     vector<Process*> processList;
 public:
-    DES(string inputFile, string rfile,SCHEDULE_MODE mode,int quantum);
+    DES(string inputFile, string rfile,SCHEDULE_MODE mode,int quantum, bool v);
     EVENT* get_event();
     int get_next_event_time();
     void add_event(EVENT* evt);

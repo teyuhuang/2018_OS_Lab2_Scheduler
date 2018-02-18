@@ -1,25 +1,31 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 #include <string>
+#include <list>
 
+using namespace std;
 
 typedef int stime_t;
 
 struct Util{
-    static int s2i(std::string s);
+    static int s2i(string s);
 };
-
+struct Discrete_Time_Accummulator{
+    list<pair<int,int>> timeline;
+    void removeAndMerge(list<pair<int,int>>::iterator it);
+    void addTimeSpan(int,int);
+    int getTotalTime();
+    void printTimeLine();
+};
 struct myRand{
     bool isFileLoaded = false;
     int MAX_ofs = -1;
-    int ofs;
+    int ofs=0;
     int* randvals;
     int myrandom(int burst);
-    int open(std::string filename);
+    int open(string filename);
     myRand();
-    myRand(std::string filename);
+    myRand(string filename);
 
 };
-
-
 #endif /* UTILITY_H */

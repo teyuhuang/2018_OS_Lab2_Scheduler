@@ -55,18 +55,13 @@ int main(int argc, char **argv){
             abort();
         }
     }
-
-
-    // cout<<sm<<":"<<quantum<<" v:"<<vlag<<endl;
-
     string inputName = argv[argc - 2];
     string randFile = argv[argc - 1];
-    DES des(inputName,randFile,sm, quantum);
-    des.print_queue();
+    // Create Discrete Event Simulation Obj
+    DES des(inputName,randFile,sm, quantum,IsVerbose);
+    // Start simulation
     des.Simulation();
+    // Print Report
     des.report();
-
-
-
     return 0;
 }
