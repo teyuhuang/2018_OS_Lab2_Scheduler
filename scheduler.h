@@ -17,10 +17,10 @@ public:
 };
 
 class Sched_FCFS: public Scheduler{
-private:
+protected:
     std::queue<Process*> procQ;
 public:
-    void add_to_qeueue(Process *p);
+    virtual void add_to_qeueue(Process *p);
     Process * get_next_process();
     Sched_FCFS();
 };
@@ -46,6 +46,7 @@ public:
 class Sched_RR: public Sched_FCFS{
 public:
     Sched_RR();
+    void add_to_qeueue(Process *p);
 };
 
 class Sched_PRIO: public Scheduler{

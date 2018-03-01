@@ -23,7 +23,7 @@ struct myRand{
     int ofs=0;
     int* randvals;
     int myrandom(int burst);
-    int open(string filename);
+    int open(string filename);  //load a rfile
     myRand();
     myRand(string filename);
 

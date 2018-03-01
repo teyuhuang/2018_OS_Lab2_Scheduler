@@ -33,7 +33,7 @@ std::string EVENT::toString(){
             break;
         case TRANS_TO_RUN:
             s+= "RUNNG";
-            s+="  cb="+to_string(evtProcess->remainingCB);
+            s+=" cb="+to_string(evtProcess->remainingCB);
             s+=" rem="+to_string(evtProcess->REM);
             s+=" prio="+to_string(evtProcess->dynamic_priority);
             break;
@@ -44,6 +44,9 @@ std::string EVENT::toString(){
             break;
         case TRANS_TO_PREEMPT:
             s+= "READY";
+            s+="  cb="+to_string(evtProcess->remainingCB);
+            s+=" rem="+to_string(evtProcess->REM);
+            s+=" prio="+to_string(evtProcess->dynamic_priority);
             break;
     }
     return s;
@@ -235,7 +238,7 @@ void DES::report(){
         cout<<THE_SCHEDULER->name<<endl;
 
     // Replace in the future!!
-    int    maxfintime = -1;
+    int    maxfintime = 0;
 	double cpu_util = 0;
 	double io_util  = IOCounter.getTotalTime();
 	double avg_turnaround = 0.0;

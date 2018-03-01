@@ -65,11 +65,14 @@ Process * Sched_SJF::get_next_process(){
 
 /*
 * Implementation of RR
-* Since it inherits add_to_qeueue() and get_next_process() from FIFS,
-* there is no need to implement again.
+* Implement add_to_qeueue to reset priority count
 */
 Sched_RR::Sched_RR(){
 	name = "RR";
+}
+void Sched_RR::add_to_qeueue(Process *p){
+	p->dynamic_priority = p->static_priority-1;
+	procQ.push(p);
 }
 
 /*
